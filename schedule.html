@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a2b" />
+    <title>Training Schedule | SquashIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="app-page">
+    <header class="app-topbar">
+      <a class="app-brand" href="index.html" aria-label="SquashIQ home"><span class="app-brand-mark">SQ</span><span>SQUASH<span>IQ</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html" aria-current="page">Schedule</a>
+      </nav>
+      <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="app-main schedule-main">
+      <section class="app-intro">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR TRAINING WEEK</p>
+        <h1>Make a plan.<br /><em>Play with intent.</em></h1>
+        <p>Start with your player details. Then generate a practical weekly draft for you and your coach to review.</p>
+      </section>
+      <section class="app-form-section" aria-labelledby="profile-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="profile-heading">Player details</h2><p>Your details are saved before a schedule can be generated.</p></div></div>
+        <form id="profile-form" class="app-form">
+          <div class="field-grid">
+            <label class="field"><span>PLAYER NAME</span><input name="full_name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
+            <label class="field"><span>EMAIL</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></label>
+            <label class="field"><span>AGE</span><input name="age" type="number" min="8" max="100" required placeholder="Your age" /></label>
+            <label class="field"><span>EXPERIENCE</span><select name="skill_level" required><option value="" disabled selected>Select level</option><option value="new">New to squash</option><option value="recreational">Recreational</option><option value="competitive">Competitive</option><option value="advanced">Advanced</option></select></label>
+          </div>
+          <label class="field"><span>MAIN FOCUS</span><select name="goal" required><option value="" disabled selected>Choose a focus</option><option value="balanced">Build an all-round game</option><option value="match-fitness">Match fitness</option><option value="movement">Movement and court coverage</option><option value="racket-skills">Racket skills and consistency</option></select></label>
+          <fieldset class="day-fieldset"><legend>TRAINING DAYS <small>SELECT 2 TO 5</small></legend><div class="day-options">
+            <label><input type="checkbox" name="training_days" value="Monday" /><span>Mon</span></label><label><input type="checkbox" name="training_days" value="Tuesday" /><span>Tue</span></label><label><input type="checkbox" name="training_days" value="Wednesday" /><span>Wed</span></label><label><input type="checkbox" name="training_days" value="Thursday" /><span>Thu</span></label><label><input type="checkbox" name="training_days" value="Friday" /><span>Fri</span></label><label><input type="checkbox" name="training_days" value="Saturday" /><span>Sat</span></label><label><input type="checkbox" name="training_days" value="Sunday" /><span>Sun</span></label>
+          </div></fieldset>
+          <button class="button button-lime app-submit" type="submit">Save player details <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="profile-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="schedule-generator" id="schedule-generator" aria-labelledby="generator-heading" hidden>
+        <div class="app-section-heading"><span>02</span><div><h2 id="generator-heading">Your weekly draft</h2><p>Generated from your training days and focus.</p></div></div>
+        <button class="button button-light app-submit" id="generate-schedule" type="button" disabled>Generate schedule <span aria-hidden="true">↗</span></button>
+        <p class="app-message" id="schedule-message" role="status" aria-live="polite"></p>
+        <div class="schedule-results" id="schedule-results" aria-live="polite"></div>
+        <p class="coach-note">This is a training draft for discussion with your coach, not medical advice or an injury assessment.</p>
+      </section>
+    </main>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="schedule.js"></script>
+  </body>
+</html>

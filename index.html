@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061a2d" />
+    <title>SquashIQ | Train with clarity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .hero-photo,
+      .coach-image {
+        background-image: none;
+        background-color: #0a2639;
+      }
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        display: block;
+        overflow: visible;
+        padding: 3px;
+        background: #fff;
+        border-radius: 50%;
+        clip-path: none;
+      }
+      .logo-frame {
+        fill: none;
+        stroke: #d5d9d8;
+        stroke-width: 5;
+      }
+      .logo-arc {
+        fill: none;
+        stroke-width: 4;
+        stroke-linecap: round;
+      }
+      .arc-blue { stroke: #24b9dd; }
+      .arc-yellow { stroke: #f3d432; }
+      .arc-red { stroke: #ed3b49; }
+      .logo-ball { fill: #11141c; stroke: #c8ef26; stroke-width: 1.5; }
+      .logo-player { fill: #11141c; }
+      .logo-racket { fill: none; stroke: #11141c; stroke-width: 2; stroke-linecap: round; }
+      .racket-head { fill: none; stroke: #d3d7d5; stroke-width: 2; }
+      .footer .brand-mark { width: 29px; height: 29px; }
+      .tournament-mark {
+        width: 112px;
+        height: 62px;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+      }
+      .racket-art {
+        fill: none;
+        stroke: #25262a;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+      }
+      .real-racket {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .real-racket .strings {
+        stroke: rgba(255, 255, 255, 0.8);
+        stroke-width: 1.1;
+      }
+      .badge-ring {
+        fill: #fff;
+        stroke: #25262a;
+        stroke-width: 3;
+      }
+      .badge-arc {
+        fill: none;
+        stroke: #25262a;
+        stroke-width: 9;
+        stroke-linecap: round;
+      }
+      .tournament-name,
+      .tournament-subtitle {
+        fill: #ffffff;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+      }
+      .tournament-name {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        stroke: rgba(255, 255, 255, 0.18);
+        stroke-width: 0.3;
+        paint-order: stroke fill;
+      }
+      .tournament-subtitle { font-size: 6px; letter-spacing: 1px; }
+      .footer .tournament-mark { width: 96px; height: 54px; }
+      @media (max-width: 800px) {
+        .topbar .nav-links { display: flex; flex: 0 1 auto; gap: 14px; margin: 0; }
+        .topbar .nav-links a:nth-child(-n+2) { display: none; }
+      }
+      @media (max-width: 430px) {
+        .topbar .button-small { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="SquashIQ home"><svg class="brand-mark tournament-mark" viewBox="0 0 160 100" role="img" aria-label="SquashIQ logo"><g class="real-racket left-racket" transform="translate(0 7)"><ellipse cx="51" cy="34" rx="16" ry="27" transform="rotate(-38 51 34)"/><path d="M58 57 73 70M73 70 78 84"/><path d="M70 79 82 87"/><path class="strings" d="M38 16 58 53M43 12 63 49M35 25 63 32M38 35 60 42"/></g><g class="real-racket right-racket" transform="translate(0 7)"><ellipse cx="109" cy="34" rx="16" ry="27" transform="rotate(38 109 34)"/><path d="M102 57 87 70M87 70 82 84"/><path d="M80 87 92 79"/><path class="strings" d="M122 16 102 53M117 12 97 49M125 25 97 32M122 35 100 42"/></g><circle class="logo-ball" cx="80" cy="39" r="7"/><text class="tournament-name" x="80" y="22" text-anchor="middle">SQUASHIQ</text></svg></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#platform">Platform</a>
+        <a href="#for-coaches">For coaches</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+      </nav>
+      <a class="button button-light button-small" href="#join">Join the pilot <span>↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> The intelligent training loop</p>
+          <h1>Play sharper.<br /><em>Train with clarity.</em></h1>
+          <p class="hero-intro">SquashIQ turns the everyday work of training into a clear, coach-approved path forward.</p>
+          <div class="hero-actions">
+            <a class="button button-lime" href="#platform">Explore the platform <span>↗</span></a>
+            <a class="text-link" href="#workflow">See how it works <span>↓</span></a>
+          </div>
+          <div class="hero-proof"><div class="avatars"><i>AS</i><i>MK</i><i>+</i></div><span>Built for the next<br />generation of players</span></div>
+        </div>
+        <div class="hero-art" aria-label="Squash ball illustration">
+          <div class="art-glow"></div>
+          <div class="hero-ball" aria-hidden="true">
+            <span class="ball-dot dot-one"></span>
+            <span class="ball-dot dot-two"></span>
+          </div>
+          <div class="hero-photo"></div>
+          <div class="court-line line-one"></div><div class="court-line line-two"></div>
+          <div class="hero-stat glass-panel"><span class="tiny-label">THIS WEEK</span><div class="mini-bars"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+          <div class="hero-note glass-panel"><span class="note-number">01</span><span>One shared<br />training picture</span></div>
+        </div>
+        <div class="scroll-cue"><span>SCROLL TO TRAIN SMARTER</span><b></b></div>
+      </section>
+
+      <section class="ticker" aria-label="SquashIQ benefits"><div>PLAYER DATA <span>✳</span> COACH CLARITY <span>✳</span> SMARTER TRAINING <span>✳</span> PLAYER DATA <span>✳</span> COACH CLARITY <span>✳</span> SMARTER TRAINING <span>✳</span></div></section>
+
+      <section class="platform section-shell" id="platform">
+        <div class="section-heading"><p class="eyebrow">01 / ONE SHARED PICTURE</p><h2>Everything that shapes<br /><em>your game.</em></h2><p>Match stats, training load, food and recovery, brought into focus. No more scattered notes or guesswork.</p></div>
+        <div class="dashboard-wrap">
+          <div class="dashboard-head"><div><span class="status-pill"><i></i> Athlete view</span><h3>Good morning</h3><p>Here is your week at a glance.</p></div><div class="date-chip">MONDAY <strong>14</strong> OCT</div></div>
+          <div class="dashboard-grid">
+            <article class="dash-card readiness"><div class="card-top"><span>READINESS SCORE</span><b>•••</b></div><div class="score-row"><strong>82</strong><span>/ 100<br /><small>Ready to train</small></span></div><div class="score-ring"><div>↑ 8%</div></div><p>Based on training load, sleep and recovery check-ins.</p></article>
+            <article class="dash-card activity"><div class="card-top"><span>TRAINING LOAD</span><b>THIS WEEK</b></div><div class="load-number">64 <small>AU</small></div><div class="chart"><i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:72%"></i><i style="height:51%"></i><i class="active" style="height:88%"></i><i style="height:62%"></i></div><div class="chart-labels"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div></article>
+            <article class="dash-card next-step"><div class="card-top"><span>NEXT UP</span><span class="lime-text">STEP 02</span></div><h4>Build your base</h4><p>12 min · conditioning</p><button class="play-button" aria-label="Start next session">▶</button><div class="progress-line"><i></i></div><small>1 of 3 sessions complete</small></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="coach section-shell" id="for-coaches"><div class="coach-image"><div class="image-caption"><span>COACH'S VIEW</span><strong>See the<br />whole player.</strong></div></div><div class="coach-copy"><p class="eyebrow">02 / COACH IN THE LOOP</p><h2>AI drafts.<br /><em>You decide.</em></h2><p>SquashIQ gives coaches the signal, then leaves the call to the person who knows the athlete best. Review insights, add your judgment, and send a plan players can actually follow.</p><div class="feature-list"><div><b>01</b><span><strong>Spot the signal</strong><small>Find patterns across stats, sessions and habits.</small></span></div><div><b>02</b><span><strong>Shape the plan</strong><small>Turn a short directive into a practical next step.</small></span></div><div><b>03</b><span><strong>Keep it human</strong><small>Every recommendation is coach-reviewed before it lands.</small></span></div></div></div></section>
+
+      <section class="workflow section-shell" id="workflow"><div class="workflow-top"><p class="eyebrow">03 / THE TRAINING LOOP</p><h2>Small steps.<br /><em>Real momentum.</em></h2><p>Good coaching is not a download. It is a conversation that gets clearer every day.</p></div><div class="steps"><article class="step active"><span>01</span><h3>Log the work</h3><p>Stats, meals, exercise, recovery. The details that usually disappear.</p><div class="step-icon">↗</div></article><article class="step"><span>02</span><h3>Find the signal</h3><p>SquashIQ connects the dots and drafts a focused recommendation.</p><div class="step-icon">✦</div></article><article class="step"><span>03</span><h3>Unlock your next</h3><p>Your coach approves the plan. You get one clear step at a time.</p><div class="step-icon">→</div></article></div></section>
+
+      <section class="join section-shell" id="join"><div><p class="eyebrow">JOIN THE FIRST SQUAD</p><h2>Make your next<br /><em>session count.</em></h2></div><div class="join-form"><p>We are piloting SquashIQ with a small group of academy players and coaches.</p><form id="pilot-form"><label><span>YOUR EMAIL</span><input name="email" type="email" placeholder="you@example.com" required /></label><button class="button button-lime" type="submit">Request an invite <span>↗</span></button></form><div class="form-message" role="status"></div></div></section>
+    </main>
+
+    <footer class="footer section-shell"><a class="brand" href="#top"><svg class="brand-mark tournament-mark" viewBox="0 0 160 100" role="img" aria-label="SquashIQ logo"><g class="real-racket left-racket"><ellipse cx="51" cy="34" rx="16" ry="27" transform="rotate(-38 51 34)"/><path d="M58 57 73 70M73 70 78 84"/><path d="M70 79 82 87"/><path class="strings" d="M38 16 58 53M43 12 63 49M35 25 63 32M38 35 60 42"/></g><g class="real-racket right-racket"><ellipse cx="109" cy="34" rx="16" ry="27" transform="rotate(38 109 34)"/><path d="M102 57 87 70M87 70 82 84"/><path d="M80 87 92 79"/><path class="strings" d="M122 16 102 53M117 12 97 49M125 25 97 32M122 35 100 42"/></g><circle class="logo-ball" cx="80" cy="39" r="7"/><text class="tournament-name" x="80" y="18" text-anchor="middle">SQUASHIQ</text></svg></a><span>Train with clarity.</span><span>© 2026 SquashIQ</span></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a2b" />
+    <title>Players | SquashIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="app-page">
+    <header class="app-topbar">
+      <a class="app-brand" href="index.html" aria-label="SquashIQ home"><span class="app-brand-mark">SQ</span><span>SQUASH<span>IQ</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a>
+        <a href="players.html" aria-current="page">Players</a>
+        <a href="schedule.html">Schedule</a>
+      </nav>
+      <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="app-main">
+      <section class="app-intro">
+        <p class="eyebrow"><span class="live-dot"></span> PLAYER VIDEO LIBRARY</p>
+        <h1>Show us<br /><em>your game.</em></h1>
+        <p>Share a match or training clip. Your coach can review the footage and add context to your training picture.</p>
+      </section>
+      <section class="app-form-section" aria-labelledby="video-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="video-heading">Add a video</h2><p>MP4, MOV or WebM · up to 100 MB</p></div></div>
+        <form id="video-form" class="app-form">
+          <div class="field-grid">
+            <label class="field"><span>PLAYER NAME</span><input name="full_name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
+            <label class="field"><span>EMAIL</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></label>
+          </div>
+          <label class="field"><span>VIDEO TITLE</span><input name="title" required maxlength="120" placeholder="e.g. Saturday match, game 2" /></label>
+          <label class="field"><span>COACHING CONTEXT <small>OPTIONAL</small></span><textarea name="notes" rows="3" maxlength="1000" placeholder="What would you like your coach to look for?"></textarea></label>
+          <label class="file-field"><input name="video" type="file" accept="video/mp4,video/quicktime,video/webm" required /><span class="file-icon" aria-hidden="true">↑</span><span class="file-copy"><strong>Choose a video</strong><small>MP4, MOV or WebM</small></span><span class="file-name" data-file-name>No file selected</span></label>
+          <button class="button button-lime app-submit" type="submit">Upload video <span aria-hidden="true">↗</span></button>
+          <p class="app-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="players.js"></script>
+  </body>
+</html>
