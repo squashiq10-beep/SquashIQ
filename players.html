@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="workflow.css" />
+    <link rel="stylesheet" href="intake.css" />
   </head>
   <body class="app-page">
     <header class="app-topbar">
@@ -18,32 +20,61 @@
         <a href="index.html#platform">Platform</a>
         <a href="players.html" aria-current="page">Players</a>
         <a href="schedule.html">Schedule</a>
+        <a href="coach.html">Coach</a>
       </nav>
       <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
     </header>
     <main class="app-main">
       <section class="app-intro">
-        <p class="eyebrow"><span class="live-dot"></span> PLAYER VIDEO LIBRARY</p>
-        <h1>Show us<br /><em>your game.</em></h1>
-        <p>Share a match or training clip. Your coach can review the footage and add context to your training picture.</p>
+        <p class="eyebrow"><span class="live-dot"></span> PLAYER PERFORMANCE INTAKE</p>
+        <h1>Build your<br /><em>full picture.</em></h1>
+        <p>Share your nutrition, training week, recovery habits, and a squash video. AI analysis stays private to your coaching team; only coach-approved feedback is returned to you.</p>
       </section>
-      <section class="app-form-section" aria-labelledby="video-heading">
-        <div class="app-section-heading"><span>01</span><div><h2 id="video-heading">Add a video</h2><p>MP4, MOV or WebM · up to 100 MB</p></div></div>
-        <form id="video-form" class="app-form">
-          <div class="field-grid">
-            <label class="field"><span>PLAYER NAME</span><input name="full_name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
-            <label class="field"><span>EMAIL</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></label>
-          </div>
-          <label class="field"><span>VIDEO TITLE</span><input name="title" required maxlength="120" placeholder="e.g. Saturday match, game 2" /></label>
-          <label class="field"><span>COACHING CONTEXT <small>OPTIONAL</small></span><textarea name="notes" rows="3" maxlength="1000" placeholder="What would you like your coach to look for?"></textarea></label>
-          <label class="file-field"><input name="video" type="file" accept="video/mp4,video/quicktime,video/webm" required /><span class="file-icon" aria-hidden="true">↑</span><span class="file-copy"><strong>Choose a video</strong><small>MP4, MOV or WebM</small></span><span class="file-name" data-file-name>No file selected</span></label>
-          <button class="button button-lime app-submit" type="submit">Upload video <span aria-hidden="true">↗</span></button>
-          <p class="app-message" role="status" aria-live="polite"></p>
+      <section class="app-form-section" aria-labelledby="intake-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="intake-heading">Your performance picture</h2><p>Sign in with a private email link before submitting.</p></div></div>
+        <form id="login-form" class="app-form workflow-login">
+          <label class="field"><span>PLAYER EMAIL</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></label>
+          <button class="button button-light app-submit" type="submit">Email me a sign-in link <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="login-message" role="status" aria-live="polite"></p>
         </form>
+        <div id="intake-area" hidden>
+          <p class="workflow-session">Signed in as <strong id="signed-in-email"></strong><button class="workflow-text-button" id="sign-out" type="button">Sign out</button></p>
+          <form id="intake-form" class="app-form">
+          <div class="field-grid">
+            <label class="field"><span>PLAYER NAME</span><input name="player_name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
+            <label class="field"><span>BODYWEIGHT <small>OPTIONAL · LB</small></span><input name="bodyweight_lb" type="number" min="50" max="700" step="0.1" placeholder="e.g. 165" /></label>
+          </div>
+          <label class="field"><span>PRIMARY GOAL</span><select name="goal" required><option value="" disabled selected>Choose a current phase</option><option value="maintenance">Maintain performance and bodyweight</option><option value="muscle-gain">Gradual muscle gain</option><option value="fat-loss">Fat loss while protecting performance</option><option value="performance">Improve squash performance</option></select></label>
+          <label class="field"><span>CALORIES & MACROS <small>OPTIONAL</small></span><textarea name="macro_targets" rows="2" maxlength="1200" placeholder="Daily calorie, protein, carbohydrate, and fat targets, if tracked"></textarea></label>
+          <label class="field"><span>MEALS, FOODS & PREFERENCES</span><textarea name="food_pattern" rows="3" maxlength="2000" placeholder="Typical meals, protein sources, food preferences, restrictions, or digestion notes"></textarea></label>
+          <label class="field"><span>TRAINING, SQUASH & RUNNING WEEK</span><textarea name="weekly_training" rows="4" maxlength="2500" required placeholder="List each day's squash, strength, running, mobility, and rest sessions; include duration or intensity if known"></textarea></label>
+          <label class="field"><span>PRE- AND POST-SESSION FUEL</span><textarea name="training_fuel" rows="2" maxlength="1200" placeholder="What and when you eat or drink around squash, running, and lifting"></textarea></label>
+          <label class="field"><span>REST-DAY ROUTINE</span><textarea name="rest_day" rows="3" maxlength="1600" placeholder="Rest-day meals, movement, stretching, and anything you find difficult to recover from"></textarea></label>
+          <div class="field-grid">
+            <label class="field"><span>HYDRATION & ELECTROLYTES</span><textarea name="hydration" rows="2" maxlength="1000" placeholder="Typical fluids, court-session hydration, sweat conditions"></textarea></label>
+            <label class="field"><span>SUPPLEMENTS <small>OPTIONAL</small></span><textarea name="supplements" rows="2" maxlength="1000" placeholder="What you use and the amount, if known"></textarea></label>
+          </div>
+          <div class="field-grid">
+            <label class="field"><span>SLEEP & RECOVERY</span><textarea name="recovery" rows="2" maxlength="1200" placeholder="Sleep, soreness, energy, and recovery habits"></textarea></label>
+            <label class="field"><span>HABITS TO BUILD OR AVOID</span><textarea name="habits" rows="2" maxlength="1200" placeholder="What is working, what you want to change, and common obstacles"></textarea></label>
+          </div>
+          <label class="field"><span>WHAT SHOULD YOUR COACH FOCUS ON?</span><textarea name="coach_focus" rows="2" maxlength="1200" placeholder="Your priorities for this review"></textarea></label>
+          <label class="field"><span>VIDEO TITLE</span><input name="video_title" required maxlength="120" placeholder="e.g. Saturday match, game 2" /></label>
+          <label class="file-field"><input name="video" type="file" accept="video/mp4,video/quicktime,video/webm" required /><span class="file-icon" aria-hidden="true">↑</span><span class="file-copy"><strong>Choose a squash video</strong><small>MP4, MOV or WebM · up to 100 MB</small></span><span class="file-name" data-file-name>No file selected</span></label>
+          <label class="workflow-consent"><input name="consent_confirmed" type="checkbox" required /><span>I agree to share this intake and video with my coaching team. The intake may be processed by the AI provider to prepare a private coach draft; only my coach-approved feedback is shown to me. This is not medical advice.</span></label>
+          <button class="button button-lime app-submit" type="submit">Send to my coach <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="intake-message" role="status" aria-live="polite"></p>
+          </form>
+          <section class="workflow-player-results" aria-labelledby="player-feedback-heading">
+            <div class="app-section-heading"><span>02</span><div><h2 id="player-feedback-heading">Coach feedback</h2><p>Only notes approved and published by your coach appear here.</p></div></div>
+            <div id="player-submissions" aria-live="polite"></div>
+          </section>
+        </div>
       </section>
     </main>
     <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tus-js-client@4/dist/tus.min.js"></script>
     <script src="supabase-config.js"></script>
     <script src="players.js"></script>
   </body>

@@ -1,0 +1,1 @@
+.workflow-consent{display:grid;grid-template-columns:20px minmax(0,1fr);align-items:start;gap:12px;color:rgba(245,247,243,.74);font-size:12px;line-height:1.6}.workflow-consent input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--lime)}.workflow-consent span{max-width:62ch}

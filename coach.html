@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a2b" />
+    <title>Coach Review | SquashIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="workflow.css" />
+  </head>
+  <body class="app-page">
+    <header class="app-topbar">
+      <a class="app-brand" href="index.html" aria-label="SquashIQ home"><span class="app-brand-mark">SQ</span><span>SQUASH<span>IQ</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="coach.html" aria-current="page">Coach</a>
+      </nav>
+      <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="app-main coach-main">
+      <section class="app-intro">
+        <p class="eyebrow"><span class="live-dot"></span> PRIVATE COACH WORKSPACE</p>
+        <h1>Review.<br /><em>Add context.</em></h1>
+        <p>AI drafts, player nutrition and training details, and private squash video are visible only to signed-in coaches. Your note is the only feedback published to the player.</p>
+      </section>
+      <section class="app-form-section" aria-labelledby="coach-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="coach-heading">Coach access</h2><p>Sign in with an email authorized in Supabase.</p></div></div>
+        <form id="coach-login" class="app-form workflow-login">
+          <label class="field"><span>COACH EMAIL</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="coach@example.com" /></label>
+          <button class="button button-light app-submit" type="submit">Email me a sign-in link <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="coach-login-message" role="status" aria-live="polite"></p>
+        </form>
+        <div id="coach-workspace" hidden>
+          <p class="workflow-session">Signed in as <strong id="coach-email"></strong><button class="workflow-text-button" id="coach-sign-out" type="button">Sign out</button></p>
+          <p class="app-message" id="coach-workspace-message" role="status" aria-live="polite"></p>
+          <section class="coach-submissions" aria-label="Player submissions" id="coach-submissions"></section>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="coach.js"></script>
+  </body>
+</html>

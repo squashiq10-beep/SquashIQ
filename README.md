@@ -8,12 +8,17 @@ Open `index.html` directly in a browser. The page uses hosted Google Fonts and C
 
 ## Player workflows
 
-- `players.html` accepts player videos and stores them in the private `player-videos` Supabase Storage bucket.
+- `players.html` collects a player-owned nutrition, training, recovery, and squash video submission after email-link sign-in.
+- `coach.html` is the authenticated review workspace for private AI drafts and video; only coach-published feedback is visible to the player.
 - `schedule.html` saves player details first, then generates and stores a weekly training draft.
-- Run `supabase-setup.sql` in the Supabase SQL Editor to create the tables, bucket, and insert-only policies.
+- Run `supabase-setup.sql` in the Supabase SQL Editor to create the tables, private bucket, and row-level security policies.
 - Add the project's publishable/anon key to `anonKey` in `supabase-config.js`. Never put a secret or service-role key in browser code.
+- Deploy `supabase/functions/generate-coach-draft` as a Supabase Edge Function and set `OPENAI_API_KEY` as a function secret. Supabase provides the URL, anon key, and service-role key to deployed functions.
+- After a coach signs in once, authorize their account from the SQL Editor with `insert into public.coach_users (user_id) select id from auth.users where email = 'coach@example.com' on conflict do nothing;`. Do not grant coach membership from the browser.
 
-The key previously embedded in the browser script was a secret credential. Rotate/revoke it in Supabase before deploying these changes. The anonymous insert policies are suitable for this prototype, but a public launch should add authenticated player accounts, request limits, and coach-only read access before collecting personal data or videos.
+With the Supabase CLI linked to the project, deploy the function with `supabase functions deploy generate-coach-draft`; configure `OPENAI_API_KEY` in Supabase function secrets and never commit it. In Supabase Auth, allow the local/deployed player and coach page URLs as redirect URLs.
+
+Rotate/revoke any OpenAI key that was previously placed in browser code. Player and coach magic-link authentication must be enabled in Supabase Auth. The legacy schedule tables remain for the existing schedule demo; the new intake and feedback workflow uses authenticated ownership and coach-only policies. Configure request limits, retention, and consent appropriate to your deployment before collecting personal data or videos.
 
 ## Included
 
