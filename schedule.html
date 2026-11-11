@@ -18,6 +18,8 @@
         <a href="index.html#platform">Platform</a>
         <a href="players.html">Players</a>
         <a href="schedule.html" aria-current="page">Schedule</a>
+        <a href="review.html">Track &amp; Review</a>
+        <a href="feedback.html">Website Feedback</a>
       </nav>
       <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
     </header>
@@ -25,7 +27,7 @@
       <section class="app-intro">
         <p class="eyebrow"><span class="live-dot"></span> YOUR TRAINING WEEK</p>
         <h1>Make a plan.<br /><em>Play with intent.</em></h1>
-        <p>Start with your player details. Then generate a practical weekly draft for you and your coach to review.</p>
+        <p>Start with your player details. Then generate a practical weekly draft for your review.</p>
       </section>
       <section class="app-form-section" aria-labelledby="profile-heading">
         <div class="app-section-heading"><span>01</span><div><h2 id="profile-heading">Player details</h2><p>Your details are saved before a schedule can be generated.</p></div></div>
@@ -36,6 +38,13 @@
             <label class="field"><span>AGE</span><input name="age" type="number" min="8" max="100" required placeholder="Your age" /></label>
             <label class="field"><span>EXPERIENCE</span><select name="skill_level" required><option value="" disabled selected>Select level</option><option value="new">New to squash</option><option value="recreational">Recreational</option><option value="competitive">Competitive</option><option value="advanced">Advanced</option></select></label>
           </div>
+          <div class="field-grid">
+            <label class="field"><span>CURRENT WEIGHT <small>KG</small></span><input name="current_weight_kg" type="number" min="20" max="300" step="0.1" placeholder="e.g. 76" /></label>
+            <label class="field"><span>CURRENT HEIGHT <small>CM</small></span><input name="current_height_cm" type="number" min="120" max="250" step="0.5" placeholder="e.g. 178" /></label>
+          </div>
+          <label class="field"><span>DIETARY RESTRICTIONS</span><textarea name="dietary_restrictions" rows="2" maxlength="1200" placeholder="Any food restrictions, preferences, or eating patterns you follow"></textarea></label>
+          <label class="field"><span>ALLERGIES</span><textarea name="allergies" rows="2" maxlength="1200" placeholder="Any allergies, sensitivities, or reactions"></textarea></label>
+          <label class="field"><span>ILLNESSES & RECENT HEALTH NOTES</span><textarea name="illnesses" rows="2" maxlength="1600" placeholder="Recent illness, injury recovery, or chronic health notes relevant to training"></textarea></label>
           <label class="field"><span>MAIN FOCUS</span><select name="goal" required><option value="" disabled selected>Choose a focus</option><option value="balanced">Build an all-round game</option><option value="match-fitness">Match fitness</option><option value="movement">Movement and court coverage</option><option value="racket-skills">Racket skills and consistency</option></select></label>
           <fieldset class="day-fieldset"><legend>TRAINING DAYS <small>SELECT 2 TO 5</small></legend><div class="day-options">
             <label><input type="checkbox" name="training_days" value="Monday" /><span>Mon</span></label><label><input type="checkbox" name="training_days" value="Tuesday" /><span>Tue</span></label><label><input type="checkbox" name="training_days" value="Wednesday" /><span>Wed</span></label><label><input type="checkbox" name="training_days" value="Thursday" /><span>Thu</span></label><label><input type="checkbox" name="training_days" value="Friday" /><span>Fri</span></label><label><input type="checkbox" name="training_days" value="Saturday" /><span>Sat</span></label><label><input type="checkbox" name="training_days" value="Sunday" /><span>Sun</span></label>
@@ -49,10 +58,10 @@
         <button class="button button-light app-submit" id="generate-schedule" type="button" disabled>Generate schedule <span aria-hidden="true">↗</span></button>
         <p class="app-message" id="schedule-message" role="status" aria-live="polite"></p>
         <div class="schedule-results" id="schedule-results" aria-live="polite"></div>
-        <p class="coach-note">This is a training draft for discussion with your coach, not medical advice or an injury assessment.</p>
+        <p class="review-note">This is a training draft for your review, not medical advice or an injury assessment.</p>
       </section>
     </main>
-    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Player-focused performance support.</span></footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
     <script src="schedule.js"></script>

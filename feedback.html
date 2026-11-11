@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a2b" />
+    <title>Website Feedback | SquashIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="workflow.css" />
+  </head>
+  <body class="app-page">
+    <header class="app-topbar">
+      <a class="app-brand" href="index.html" aria-label="SquashIQ home"><span class="app-brand-mark">SQ</span><span>SQUASH<span>IQ</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="review.html">Track &amp; Review</a>
+        <a href="feedback.html" aria-current="page">Website Feedback</a>
+      </nav>
+      <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="app-main review-main">
+      <section class="app-intro">
+        <p class="eyebrow"><span class="live-dot"></span> HELP US IMPROVE</p>
+        <h1>Tell us what is working.<br /><em>And what needs improving.</em></h1>
+        <p>Your feedback helps shape the next version of the site so it feels easier to use and more useful in real training weeks.</p>
+      </section>
+      <section class="app-form-section" aria-labelledby="feedback-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="feedback-heading">Website feedback</h2><p>Share what stood out and what could be clearer.</p></div></div>
+        <form id="website-feedback-form" class="app-form workflow-login">
+          <label class="field"><span>HOW EASY WAS THE SITE TO USE?</span>
+            <select name="ease" required>
+              <option value="" disabled selected>Select a rating</option>
+              <option value="very-easy">Very easy</option>
+              <option value="easy">Easy</option>
+              <option value="okay">Okay</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+          <label class="field"><span>HOW USEFUL WAS THE EXPERIENCE?</span>
+            <input name="usefulness" type="number" min="1" max="10" step="1" placeholder="1-10" required />
+          </label>
+          <label class="field"><span>WHAT WOULD MAKE IT BETTER?</span><textarea name="improvements" rows="4" maxlength="2500" placeholder="What are the biggest friction points or features you would like to see next?"></textarea></label>
+          <label class="field"><span>ANYTHING YOU LIKED MOST?</span><textarea name="liked" rows="3" maxlength="2000" placeholder="Tell us what felt clear, motivating, or helpful"></textarea></label>
+          <button class="button button-light app-submit" type="submit">Send feedback <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="feedback-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Player-focused performance support.</span></footer>
+    <script src="feedback.js"></script>
+  </body>
+</html>

@@ -32,6 +32,11 @@ profileForm.addEventListener('submit', async (event) => {
     email: formData.get('email').toString().trim().toLowerCase(),
     age: Number(formData.get('age')),
     skill_level: formData.get('skill_level'),
+    current_weight_kg: formData.get('current_weight_kg') ? Number(formData.get('current_weight_kg')) : null,
+    current_height_cm: formData.get('current_height_cm') ? Number(formData.get('current_height_cm')) : null,
+    dietary_restrictions: formData.get('dietary_restrictions').toString().trim(),
+    allergies: formData.get('allergies').toString().trim(),
+    illnesses: formData.get('illnesses').toString().trim(),
     goal: formData.get('goal'),
     training_days: trainingDays,
   };
@@ -57,7 +62,7 @@ function createSchedule(profile) {
       ['Court movement', 'Warm up, then work on split steps, ghosting and controlled recovery to the T.'],
       ['Racket skills', 'Build straight drives and length with a relaxed grip and consistent contact.'],
       ['Match play', 'Play focused games and choose one tactical intention for each game.'],
-      ['Strength and mobility', 'Use coach-approved full-body strength work, then finish with easy mobility.'],
+      ['Strength and mobility', 'Use full-body strength work, then finish with easy mobility.'],
       ['Conditioning', 'Alternate short court intervals with generous recovery between efforts.'],
     ],
     'match-fitness': [
@@ -71,14 +76,14 @@ function createSchedule(profile) {
       ['Movement technique', 'Work on split steps, balanced lunges and returning to the T under control.'],
       ['Ghosting patterns', 'Practise short, deliberate corner-to-corner patterns with full recovery.'],
       ['Racket skills', 'Pair controlled movement with straight drives and repeatable contact.'],
-      ['Court movement', 'Use coach-selected movement patterns and focus on balance after each shot.'],
+      ['Court movement', 'Use movement patterns that support balance and clean recovery after each shot.'],
       ['Easy recovery', 'Take a relaxed walk or gentle mobility session and keep the effort light.'],
     ],
     'racket-skills': [
       ['Straight drives', 'Build repeatable length on both sides; pause to reset your setup and contact.'],
       ['Serve and return', 'Practise a small set of reliable serves, then work on controlled returns.'],
       ['Racket skills', 'Alternate straight drives, boasts and volleys at a pace that preserves accuracy.'],
-      ['Conditioned games', 'Play short games with one technical focus and review the pattern with your coach.'],
+      ['Conditioned games', 'Play short games with one technical focus and review the pattern with your training notes.'],
       ['Easy recovery', 'Take a relaxed walk or gentle mobility session and keep the effort light.'],
     ],
   };
@@ -129,7 +134,7 @@ generateButton.addEventListener('click', async () => {
     const { error } = await scheduleSupabase.from('player_schedules').insert(schedule);
     if (error) throw error;
     renderSchedule(sessions);
-    scheduleMessage.textContent = 'Schedule generated and saved for you and your coach to review.';
+    scheduleMessage.textContent = 'Schedule generated and saved for your review.';
   } catch (error) {
     console.error('Schedule save failed:', error);
     scheduleMessage.textContent = 'We could not save the schedule. Check your connection and try again.';

@@ -22,7 +22,7 @@ function renderPlayerSubmissions(submissions) {
   const container = document.querySelector('#player-submissions');
   container.replaceChildren();
   if (!submissions.length) {
-    container.textContent = 'Your coach-approved feedback will appear here after a review.';
+    container.textContent = 'Your approved feedback will appear here after a review.';
     return;
   }
 
@@ -33,7 +33,7 @@ function renderPlayerSubmissions(submissions) {
     heading.textContent = submission.intake.video_title;
     const status = document.createElement('p');
     status.className = 'workflow-status';
-    status.textContent = submission.status === 'published' ? 'COACH REVIEW COMPLETE' : 'WAITING FOR COACH REVIEW';
+    status.textContent = submission.status === 'published' ? 'REVIEW COMPLETE' : 'WAITING FOR REVIEW';
     article.append(heading, status);
     if (submission.final_feedback) {
       const feedback = document.createElement('p');
@@ -143,11 +143,14 @@ intakeForm.addEventListener('submit', async (event) => {
   const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '-');
   const storagePath = `${activeUser.id}/${submissionId}/${safeName}`;
   const fields = [
-    'goal', 'macro_targets', 'food_pattern', 'weekly_training', 'training_fuel',
-    'rest_day', 'hydration', 'supplements', 'recovery', 'habits', 'coach_focus', 'video_title',
+    'goal', 'dietary_restrictions', 'allergies', 'illnesses', 'macro_targets', 'food_pattern',
+    'weekly_training', 'training_fuel', 'rest_day', 'hydration', 'supplements', 'recovery',
+    'habits', 'review_focus', 'video_title',
   ];
   const intake = Object.fromEntries(fields.map((key) => [key, formData.get(key)?.toString().trim() || '']));
   intake.bodyweight_lb = formData.get('bodyweight_lb') ? Number(formData.get('bodyweight_lb')) : null;
+  intake.current_weight_lb = formData.get('current_weight_lb') ? Number(formData.get('current_weight_lb')) : null;
+  intake.current_height_in = formData.get('current_height_in') ? Number(formData.get('current_height_in')) : null;
   let uploadAttempted = false;
 
   try {
@@ -171,7 +174,7 @@ intakeForm.addEventListener('submit', async (event) => {
     });
     if (insertError) throw insertError;
 
-    showMessage(intakeMessage, 'Submission saved. Preparing a private draft for your coach…');
+    showMessage(intakeMessage, 'Submission saved. Preparing your AI review…');
     const { error: feedbackError } = await playerSupabase.functions.invoke('generate-coach-draft', {
       body: { submissionId },
     });
@@ -179,8 +182,8 @@ intakeForm.addEventListener('submit', async (event) => {
     document.querySelector('[data-file-name]').textContent = 'No file selected';
     await loadPlayerSubmissions();
     showMessage(intakeMessage, feedbackError
-      ? 'Your intake and video are saved. Your coach can review them; AI draft generation needs configuration.'
-      : 'Your intake and video are with your coach. AI draft feedback is private to the coaching team.');
+      ? 'Your intake and video are saved. AI review generation needs configuration.'
+      : 'Your intake and video are saved. Your AI feedback is ready for review.');
   } catch (error) {
     console.error('Player submission failed:', error);
     if (uploadAttempted) await playerSupabase.storage.from('player-videos').remove([storagePath]);

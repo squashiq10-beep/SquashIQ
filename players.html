@@ -20,7 +20,8 @@
         <a href="index.html#platform">Platform</a>
         <a href="players.html" aria-current="page">Players</a>
         <a href="schedule.html">Schedule</a>
-        <a href="coach.html">Coach</a>
+        <a href="review.html">Track &amp; Review</a>
+        <a href="feedback.html">Website Feedback</a>
       </nav>
       <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
     </header>
@@ -28,7 +29,7 @@
       <section class="app-intro">
         <p class="eyebrow"><span class="live-dot"></span> PLAYER PERFORMANCE INTAKE</p>
         <h1>Build your<br /><em>full picture.</em></h1>
-        <p>Share your nutrition, training week, recovery habits, and a squash video. AI analysis stays private to your coaching team; only coach-approved feedback is returned to you.</p>
+        <p>Share your nutrition, training week, recovery habits, and a squash video. AI analysis stays private to your account and only approved feedback is returned to you.</p>
       </section>
       <section class="app-form-section" aria-labelledby="intake-heading">
         <div class="app-section-heading"><span>01</span><div><h2 id="intake-heading">Your performance picture</h2><p>Sign in with a private email link before submitting.</p></div></div>
@@ -44,7 +45,14 @@
             <label class="field"><span>PLAYER NAME</span><input name="player_name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
             <label class="field"><span>BODYWEIGHT <small>OPTIONAL · LB</small></span><input name="bodyweight_lb" type="number" min="50" max="700" step="0.1" placeholder="e.g. 165" /></label>
           </div>
+          <div class="field-grid">
+            <label class="field"><span>CURRENT WEIGHT <small>LB</small></span><input name="current_weight_lb" type="number" min="50" max="700" step="0.1" placeholder="e.g. 168" /></label>
+            <label class="field"><span>CURRENT HEIGHT <small>IN</small></span><input name="current_height_in" type="number" min="48" max="96" step="0.5" placeholder="e.g. 70" /></label>
+          </div>
           <label class="field"><span>PRIMARY GOAL</span><select name="goal" required><option value="" disabled selected>Choose a current phase</option><option value="maintenance">Maintain performance and bodyweight</option><option value="muscle-gain">Gradual muscle gain</option><option value="fat-loss">Fat loss while protecting performance</option><option value="performance">Improve squash performance</option></select></label>
+          <label class="field"><span>DIETARY RESTRICTIONS</span><textarea name="dietary_restrictions" rows="2" maxlength="1200" placeholder="Any food restrictions, preferences, or eating patterns you follow"></textarea></label>
+          <label class="field"><span>ALLERGIES</span><textarea name="allergies" rows="2" maxlength="1200" placeholder="Any allergies, sensitivities, or reactions"></textarea></label>
+          <label class="field"><span>ILLNESSES & RECENT HEALTH NOTES</span><textarea name="illnesses" rows="2" maxlength="1600" placeholder="Recent illness, injury recovery, or chronic health notes relevant to training"></textarea></label>
           <label class="field"><span>CALORIES & MACROS <small>OPTIONAL</small></span><textarea name="macro_targets" rows="2" maxlength="1200" placeholder="Daily calorie, protein, carbohydrate, and fat targets, if tracked"></textarea></label>
           <label class="field"><span>MEALS, FOODS & PREFERENCES</span><textarea name="food_pattern" rows="3" maxlength="2000" placeholder="Typical meals, protein sources, food preferences, restrictions, or digestion notes"></textarea></label>
           <label class="field"><span>TRAINING, SQUASH & RUNNING WEEK</span><textarea name="weekly_training" rows="4" maxlength="2500" required placeholder="List each day's squash, strength, running, mobility, and rest sessions; include duration or intensity if known"></textarea></label>
@@ -58,21 +66,21 @@
             <label class="field"><span>SLEEP & RECOVERY</span><textarea name="recovery" rows="2" maxlength="1200" placeholder="Sleep, soreness, energy, and recovery habits"></textarea></label>
             <label class="field"><span>HABITS TO BUILD OR AVOID</span><textarea name="habits" rows="2" maxlength="1200" placeholder="What is working, what you want to change, and common obstacles"></textarea></label>
           </div>
-          <label class="field"><span>WHAT SHOULD YOUR COACH FOCUS ON?</span><textarea name="coach_focus" rows="2" maxlength="1200" placeholder="Your priorities for this review"></textarea></label>
+          <label class="field"><span>WHAT SHOULD YOUR NEXT REVIEW FOCUS ON?</span><textarea name="review_focus" rows="2" maxlength="1200" placeholder="Your priorities for this review"></textarea></label>
           <label class="field"><span>VIDEO TITLE</span><input name="video_title" required maxlength="120" placeholder="e.g. Saturday match, game 2" /></label>
           <label class="file-field"><input name="video" type="file" accept="video/mp4,video/quicktime,video/webm" required /><span class="file-icon" aria-hidden="true">↑</span><span class="file-copy"><strong>Choose a squash video</strong><small>MP4, MOV or WebM · up to 100 MB</small></span><span class="file-name" data-file-name>No file selected</span></label>
-          <label class="workflow-consent"><input name="consent_confirmed" type="checkbox" required /><span>I agree to share this intake and video with my coaching team. The intake may be processed by the AI provider to prepare a private coach draft; only my coach-approved feedback is shown to me. This is not medical advice.</span></label>
-          <button class="button button-lime app-submit" type="submit">Send to my coach <span aria-hidden="true">↗</span></button>
+          <label class="workflow-consent"><input name="consent_confirmed" type="checkbox" required /><span>I agree to share this intake and video with my training support and the AI review process. Only approved feedback is shown to me. This is not medical advice.</span></label>
+          <button class="button button-lime app-submit" type="submit">Submit my intake <span aria-hidden="true">↗</span></button>
           <p class="app-message" id="intake-message" role="status" aria-live="polite"></p>
           </form>
           <section class="workflow-player-results" aria-labelledby="player-feedback-heading">
-            <div class="app-section-heading"><span>02</span><div><h2 id="player-feedback-heading">Coach feedback</h2><p>Only notes approved and published by your coach appear here.</p></div></div>
+            <div class="app-section-heading"><span>02</span><div><h2 id="player-feedback-heading">Player feedback</h2><p>Only approved feedback appears here.</p></div></div>
             <div id="player-submissions" aria-live="polite"></div>
           </section>
         </div>
       </section>
     </main>
-    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Coach-reviewed performance support.</span></footer>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Player-focused performance support.</span></footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/tus-js-client@4/dist/tus.min.js"></script>
     <script src="supabase-config.js"></script>

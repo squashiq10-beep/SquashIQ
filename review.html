@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071a2b" />
+    <title>Track & Review | SquashIQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="workflow.css" />
+  </head>
+  <body class="app-page">
+    <header class="app-topbar">
+      <a class="app-brand" href="index.html" aria-label="SquashIQ home"><span class="app-brand-mark">SQ</span><span>SQUASH<span>IQ</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="review.html" aria-current="page">Track &amp; Review</a>
+        <a href="feedback.html">Website Feedback</a>
+      </nav>
+      <a class="app-back-link" href="index.html">Home <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="app-main review-main">
+      <section class="app-intro">
+        <p class="eyebrow"><span class="live-dot"></span> WEEKLY PLAYER REVIEW</p>
+        <h1>Track your week.<br /><em>Review your progress.</em></h1>
+        <p>Check whether your weekly goals were achieved, capture what got in the way, and get a short AI reflection to help you focus the next block.</p>
+      </section>
+      <section class="app-form-section" aria-labelledby="review-heading">
+        <div class="app-section-heading"><span>01</span><div><h2 id="review-heading">Weekly review</h2><p>Score the week and let the AI turn it into a clear next step.</p></div></div>
+        <form id="review-form" class="app-form workflow-login">
+          <label class="field"><span>WEEKLY GOAL</span>
+            <select name="goal" required>
+              <option value="" disabled selected>Select your main goal</option>
+              <option value="consistency">Consistency and routine</option>
+              <option value="fitness">Fitness and conditioning</option>
+              <option value="movement">Movement and court coverage</option>
+              <option value="skills">Racket skills and shot quality</option>
+            </select>
+          </label>
+          <fieldset class="day-fieldset">
+            <legend>GOAL STATUS</legend>
+            <div class="day-options">
+              <label><input type="radio" name="goal_status" value="achieved" required /><span>Achieved</span></label>
+              <label><input type="radio" name="goal_status" value="partial" /><span>Partially achieved</span></label>
+              <label><input type="radio" name="goal_status" value="missed" /><span>Not yet</span></label>
+            </div>
+          </fieldset>
+          <label class="field"><span>WHAT DID YOU ACHIEVE THIS WEEK?</span><textarea name="wins" rows="3" maxlength="2000" placeholder="List the sessions, habits, or improvements that went well this week"></textarea></label>
+          <label class="field"><span>WHAT GOT IN THE WAY?</span><textarea name="obstacles" rows="3" maxlength="2000" placeholder="Fatigue, time, recovery, focus, or routine issues"></textarea></label>
+          <label class="field"><span>HOW CONFIDENT DO YOU FEEL ABOUT NEXT WEEK?</span><input name="confidence" type="number" min="1" max="10" step="1" placeholder="1-10" /></label>
+          <label class="field"><span>WHAT SHOULD CHANGE NEXT WEEK?</span><textarea name="next_step" rows="3" maxlength="2000" placeholder="One change that could make the next week more effective"></textarea></label>
+          <button class="button button-light app-submit" type="submit">Generate AI review <span aria-hidden="true">↗</span></button>
+          <p class="app-message" id="review-message" role="status" aria-live="polite"></p>
+        </form>
+        <div id="review-output" class="workflow-result" hidden>
+          <h3>AI feedback</h3>
+          <p id="review-summary"></p>
+          <ul id="review-points"></ul>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer"><a href="index.html">SquashIQ</a><span>Player-focused performance support.</span></footer>
+    <script src="review.js"></script>
+  </body>
+</html>
